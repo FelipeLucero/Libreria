@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TablalibroComponent } from './components/tablalibro/tablalibro.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 
 
@@ -31,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormularioingresoComponent,
     LoginComponent,
     ProfileComponent,
-    TablalibroComponent
+    TablalibroComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule,

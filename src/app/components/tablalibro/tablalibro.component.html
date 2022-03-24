@@ -3,7 +3,7 @@
     <h5 class=" colorMorado">Se han encontrado {{ libros.length }} {{ libros.length == 1 ? " registro" : " registros" }}
     </h5>
     <div class="my-2 text-start">
-        <button class="btn btn-outline-success" type="button" [routerLink]="['/ingresolibro']">Nuevo Libro</button>
+        <button class="btn btn-outline-success" type="button" [routerLink]="['/ingresolibro/form']">Nuevo Libro</button>
     </div>
 </div>
 <div *ngIf="libros.length > 0; else NoHayDatos" class="container-fluid mt-4 row">
@@ -12,7 +12,7 @@
     </div>
     <div class="table-responsive shadow-lg col-12 col-md-8">
         <table class="table table-bordered table-hover">
-            <thead class="colorMorado">
+            <thead class="colorMorado text-center">
                 <tr>
                     <th (click)="ordenarListaLibros('id')">ID</th>
                     <th (click)="ordenarListaLibros('nombre')">Nombre</th>
@@ -32,12 +32,15 @@
                     <td>{{libro.categoria}}</td>
                     <td>{{libro.detalle}}</td>
                     <td>{{libro.precio}}</td>
-                    <td> <img class="imgTabla" src="{{libro.imglibro}}"> </td>
+                    <div class="d-flex justify-content-center">
+                        <td> <img class="imgTabla " src="{{libro.imglibro}}"> </td>
+                    </div>
                     <td>
                         <div class="row">
                             <div class="col-6 text-center">
                                 <button class="btn btn-outline-warning" data-bs-toggle="tooltip"
-                                    data-bs-placement="bottom" title="Editar" [routerLink]="['/libros/form',libro.id]">
+                                    data-bs-placement="bottom" title="Editar"
+                                    [routerLink]="['/ingresolibro/form',libro.id]">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
                             </div>

@@ -1,42 +1,54 @@
 <div class="container marginTop ">
     <div class="row shadow m-5">
         <div class="col-12 col-md-8 container">
-            <form action="#" method="get" enctype="text/plain">
+            <form [formGroup]="form">
                 <div>
                     <div class="card-header encabezado">
-                        <h4 class="card-title text-center ">Ingresar Nuevo Libro:</h4>
+                        <h4 class="card-title text-center ">{{titulo}}</h4>
                     </div>
                     <div class="card-body">
                         <div class="mb-3">
                             <label class="form-label fw-bold" for="nombre">Ingresar Titulo</label>
-                            <input class="form-control" type="text" name="nombre" id="nombre"
-                                placeholder="Ej. Papelucho" required>
+                            <input class="form-control" type="text" placeholder="Ej. Papelucho" formControlName="nombre"
+                                [(ngModel)]="libro.nombre" [ngClass]="{'is-invalid':submitted && f['nombre'].errors}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-bold" for="autor">Ingresar Autor</label>
-                            <input class="form-control" type="text" name="autor" id="autor"
-                                placeholder="Ej. Marcela Paz" required>
+                            <input class="form-control" type="text" placeholder="Ej. Marcela Paz"
+                                formControlName="autor" [(ngModel)]="libro.autor"
+                                [ngClass]="{'is-invalid':submitted && f['autor'].errors}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-bold" for="detalle">Descripción</label>
-                            <textarea class="form-control" name="detalle" id="detalle"
+                            <textarea class="form-control"
                                 placeholder="Ej. Papelucho es el protagonista de una serie de libros para niños creado por la escritora chilena Marcela Paz que narran las aventuras de un niño chileno. Papelucho se basa en las experiencias de la autora en su infancia, y los libros están escritos en la forma de un diario de vida escrito por el personaje principal."
-                                rows="6"></textarea>
+                                rows="6" formControlName="detalle" [(ngModel)]="libro.detalle"
+                                [ngClass]="{'is-invalid':submitted && f['detalle'].errors}"></textarea>
                         </div>
-                        <div class="mb-3">
+                        <div>
                             <label class="form-label fw-bold" for="imglibro">Adjuntar Imagen de Libro</label>
-                            <input class="form-control" type='file' alife-file-to-base64
-                                (onFileChanged)="onFileChanged($event)">
+                            <div class="row">
+                                <div class="col-12 col-md-8">
+                                    <input class="form-control " type='file' alife-file-to-base64
+                                        (onFileChanged)="onFileChanged($event)" formControlName="imglibro"
+                                        [(ngModel)]="libro.imglibro"
+                                        [ngClass]="{'is-invalid':submitted && f['imglibro'].errors}">
+                                </div>
+                                <div class="col-12 col-md-4 d-flex justify-content-center">
+                                    <img class="imgcrud" src="{{libro.imglibro}}" alt="cargando IMG..................">
+                                </div>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-bold" for="categoria">Categoría</label>
-                            <input class="form-control" type="text" name="categoria" id="categoria"
-                                placeholder="Ej. Infantil" required>
+                            <input class="form-control" type="text" placeholder="Ej. Infantil"
+                                formControlName="categoria" [(ngModel)]="libro.categoria"
+                                [ngClass]="{'is-invalid':submitted && f['categoria'].errors}">
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-bold" for="precio">Precio</label>
-                            <input class="form-control" type="text" name="precio" id="precio" placeholder="Ej. $5000"
-                                required>
+                            <input class="form-control" type="text" placeholder="Ej. $5000" formControlName="precio"
+                                [(ngModel)]="libro.precio" [ngClass]="{'is-invalid':submitted && f['precio'].errors}">
                         </div>
                     </div>
                 </div>
@@ -46,8 +58,14 @@
             <img class="img-fluid" src="/assets/img/logo-claro.png" alt="imgIngresoLibros">
         </div>
         <div class="container mb-3">
-            <input type="submit" class="btn btn-outline-info" id="enviar" value="Enviar">
-            <input type="reset" class="btn btn-outline-danger" id="reset" value="Cancelar">
+            <button class="btn btn-lg btn-outline-primary me-4" (click)="onSubmit()" *ngIf="!libro.id else elseBlock"
+                role="button">Crear</button>
+            <ng-template #elseBlock>
+                <button class="btn btn-lg  btn-outline-primary me-4" (click)="updateLibro()"
+                    role="button">Editar</button>
+            </ng-template>
+            <button type="button" (click)="onReset()" class="btn btn-lg me-4 btn-outline-warning">Limpiar</button>
+            <button type="button" class="btn btn-lg  btn-outline-success" routerLink="/crud">Volver</button>
         </div>
     </div>
 </div>

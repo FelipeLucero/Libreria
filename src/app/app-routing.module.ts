@@ -5,9 +5,12 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { FormularioingresoComponent } from './components/formularioingreso/formularioingreso.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { Pagina404Component } from './components/pagina404/pagina404.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TablalibroComponent } from './components/tablalibro/tablalibro.component';
+
+
 
 
 const routes: Routes = [
@@ -24,11 +27,19 @@ const routes: Routes = [
   },
 
   {
-    path: 'ingresolibro', component: FormularioingresoComponent 
+    path: 'ingresolibro/form', component: FormularioingresoComponent 
+  },
+
+  {
+    path: 'ingresolibro/form/:id', component: FormularioingresoComponent 
   },
 
   {
     path: 'contacto', component: ContactoComponent
+  },
+
+  {
+    path: 'nosotros', component: NosotrosComponent
   },
 
   {
