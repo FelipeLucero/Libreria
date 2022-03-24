@@ -14,7 +14,7 @@
                 <a class="nav-link" routerLink="nosotros">Nosotros</a>
                 <a class="nav-link" routerLink="crud">Crud Libros</a>
                 <a class="nav-link" [routerLink]="['/login']" *ngIf="!isAuthenticated">Iniciar Sesión</a>
-                <a class="nav-link me-2" [routerLink]="['/perfil']" *ngIf="!isAuthenticated">Usuario</a>
+                <a class="nav-link me-2" [routerLink]="['/perfil']" *ngIf="isAuthenticated">Usuario</a>
                 <a class="nav-link ms-2  " [routerLink]="['']" (click)="logout()" *ngIf="isAuthenticated">Cerrar
                     Sesión</a>
             </div>
