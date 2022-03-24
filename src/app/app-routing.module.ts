@@ -4,7 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { FormularioingresoComponent } from './components/formularioingreso/formularioingreso.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { Pagina404Component } from './components/pagina404/pagina404.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { TablalibroComponent } from './components/tablalibro/tablalibro.component';
 
 
@@ -18,19 +20,23 @@ const routes: Routes = [
   },
 
   {
-    path:'crud', component: TablalibroComponent
+    path:'crud', component: TablalibroComponent 
   },
 
   {
-    path: 'crud', component: FormularioingresoComponent
-  },
-
-  {
-    path: 'ingresolibro', component: FormularioingresoComponent
+    path: 'ingresolibro', component: FormularioingresoComponent 
   },
 
   {
     path: 'contacto', component: ContactoComponent
+  },
+
+  {
+     path: 'perfil', component: ProfileComponent
+  },
+
+  {
+    path: 'login', component:LoginComponent
   },
 
   {
