@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { FormularioingresoComponent } from './components/formularioingreso/formularioingreso.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,6 +21,9 @@ const routes: Routes = [
 
   {
     path:'home', redirectTo: ''
+  },
+  {
+    path : 'catalogo', component: CatalogoComponent
   },
 
   {
