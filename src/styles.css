@@ -10,6 +10,14 @@
   background-color: #230051;
 }
 
+.bgBoton {
+  background-color: #ad8ada;
+}
+
+.bgBoton:hover {
+  background-color: #a8dadc;
+}
+
 .colorBgCeleste {
   background-color: #a8dadc;
 }

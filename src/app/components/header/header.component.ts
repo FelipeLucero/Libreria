@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isAuthenticated: boolean;
+
+
+  constructor(@Inject(DOCUMENT) private document: Document, private authService: AuthService) {
+    this.isAuthenticated=false;
+   }
 
   ngOnInit(): void {
+    this.authService.isAuthenticated$.subscribe((success: boolean) =>{
+      this.isAuthenticated = success;
+    });
+  }
+
+  public logout(): void{
+    this.authService.logout({
+      returnTo: this.document.location.origin,
+    })
   }
 
 }
+

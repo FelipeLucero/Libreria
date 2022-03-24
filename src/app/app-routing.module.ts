@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { AuthGuard } from '@auth0/auth0-angular';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
@@ -27,15 +27,15 @@ const routes: Routes = [
   },
 
   {
-    path:'crud', component: TablalibroComponent 
+    path:'crud', component: TablalibroComponent, canActivate: [AuthGuard]
   },
 
   {
-    path: 'ingresolibro/form', component: FormularioingresoComponent 
+    path: 'ingresolibro/form', component: FormularioingresoComponent, canActivate: [AuthGuard] 
   },
 
   {
-    path: 'ingresolibro/form/:id', component: FormularioingresoComponent 
+    path: 'ingresolibro/form/:id', component: FormularioingresoComponent, canActivate: [AuthGuard] 
   },
 
   {
@@ -47,7 +47,7 @@ const routes: Routes = [
   },
 
   {
-     path: 'perfil', component: ProfileComponent
+    path:'perfil', component: ProfileComponent, canActivate: [AuthGuard]
   },
 
   {

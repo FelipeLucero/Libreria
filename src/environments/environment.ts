@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   auth0:{
-    domain: 'nttdatalucero.us.auth0.com',
-    clientId: 'jHN73X7FbDsFVOXl7f6j7ondudpF3QXd',
+    domain: 'ariela08.us.auth0.com',
+    clientId: 'vIebturqmxEnyjPsGwirovlUAA62lhAV',
     redirectUri:  'http://localhost:4200',
   }
 
