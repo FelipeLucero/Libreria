@@ -1,0 +1,70 @@
+<div class="container divMarginTop pt-3 text-center colorMorado">
+    <h1>{{titulo}}</h1>
+    <h5 class=" colorMorado">Se han encontrado {{ libros.length }} {{ libros.length == 1 ? " registro" : " registros" }}
+    </h5>
+    <div class="my-2 text-start">
+        <button class="btn btn-outline-success" type="button" [routerLink]="['/ingresolibro']">Nuevo Libro</button>
+    </div>
+</div>
+<div *ngIf="libros.length > 0; else NoHayDatos" class="container-fluid mt-4 row">
+    <div class="col-12 col-md-4">
+        <img src="/assets/img/logo-oscuro.png " class="img-fluid">
+    </div>
+    <div class="table-responsive shadow-lg col-12 col-md-8">
+        <table class="table table-bordered table-hover">
+            <thead class="colorMorado">
+                <tr>
+                    <th (click)="ordenarListaLibros('id')">ID</th>
+                    <th (click)="ordenarListaLibros('nombre')">Nombre</th>
+                    <th (click)="ordenarListaLibros('autor')">Autor</th>
+                    <th (click)="ordenarListaLibros('categoria')">Categoria</th>
+                    <th (click)="ordenarListaLibros('detalle')">Detalle</th>
+                    <th (click)="ordenarListaLibros('precio')">Precio</th>
+                    <th (click)="ordenarListaLibros('imglibro')">Img</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="align-middle" *ngFor="let libro of libros">
+                    <td>{{libro.id}}</td>
+                    <td>{{libro.nombre}}</td>
+                    <td>{{libro.autor}}</td>
+                    <td>{{libro.categoria}}</td>
+                    <td>{{libro.detalle}}</td>
+                    <td>{{libro.precio}}</td>
+                    <td> <img class="imgTabla" src="{{libro.imglibro}}"> </td>
+                    <td>
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <button class="btn btn-outline-warning" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Editar" [routerLink]="['/libros/form',libro.id]">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                            </div>
+                            <div class="col-6 text-center">
+                                <button class="btn btn-outline-danger" data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom" title="Eliminar" (click)="eliminar(libro)" role="button">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-template #NoHayDatos>
+    <div class="container mt-4 py-4 rounded ">
+        <div class="card">
+            <div class="card-header">
+                <span class="text-warning fs-1">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </span>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Actualmente no hay datos para mostrar.</h5>
+            </div>
+        </div>
+    </div>
+</ng-template>

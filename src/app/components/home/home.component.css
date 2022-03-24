@@ -1,0 +1,22 @@
+.colorTextoPrincipal {
+  color: #230051;
+}
+
+.contLogo {
+  width: 400px;
+  height: 400px;
+}
+
+.divFlexEnd {
+  justify-content: center;
+}
+
+.btnColor {
+  background-color: #230051;
+  color: #ffff;
+}
+
+.btnColor:hover {
+  background-color: #a8dadc !important;
+  color: #230051 !important;
+}

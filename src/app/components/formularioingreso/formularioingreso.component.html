@@ -1,0 +1,53 @@
+<div class="container marginTop ">
+    <div class="row shadow m-5">
+        <div class="col-12 col-md-8 container">
+            <form action="#" method="get" enctype="text/plain">
+                <div>
+                    <div class="card-header encabezado">
+                        <h4 class="card-title text-center ">Ingresar Nuevo Libro:</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="nombre">Ingresar Titulo</label>
+                            <input class="form-control" type="text" name="nombre" id="nombre"
+                                placeholder="Ej. Papelucho" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="autor">Ingresar Autor</label>
+                            <input class="form-control" type="text" name="autor" id="autor"
+                                placeholder="Ej. Marcela Paz" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="detalle">Descripción</label>
+                            <textarea class="form-control" name="detalle" id="detalle"
+                                placeholder="Ej. Papelucho es el protagonista de una serie de libros para niños creado por la escritora chilena Marcela Paz que narran las aventuras de un niño chileno. Papelucho se basa en las experiencias de la autora en su infancia, y los libros están escritos en la forma de un diario de vida escrito por el personaje principal."
+                                rows="6"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="imglibro">Adjuntar Imagen de Libro</label>
+                            <input class="form-control" type='file' alife-file-to-base64
+                                (onFileChanged)="onFileChanged($event)">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="categoria">Categoría</label>
+                            <input class="form-control" type="text" name="categoria" id="categoria"
+                                placeholder="Ej. Infantil" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="precio">Precio</label>
+                            <input class="form-control" type="text" name="precio" id="precio" placeholder="Ej. $5000"
+                                required>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-md-4 ajustarimgadiv">
+            <img class="img-fluid" src="/assets/img/logo-claro.png" alt="imgIngresoLibros">
+        </div>
+        <div class="container mb-3">
+            <input type="submit" class="btn btn-outline-info" id="enviar" value="Enviar">
+            <input type="reset" class="btn btn-outline-danger" id="reset" value="Cancelar">
+        </div>
+    </div>
+</div>
