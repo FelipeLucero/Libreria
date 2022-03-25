@@ -19,6 +19,8 @@ import { TablalibroComponent } from './components/tablalibro/tablalibro.componen
 import { HttpClientModule } from '@angular/common/http';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -44,7 +46,9 @@ import { CatalogoComponent } from './components/catalogo/catalogo.component';
     FormsModule,
     AlifeFileToBase64Module,
     ReactiveFormsModule,
-    AuthModule.forRoot(environment.auth0)
+    AuthModule.forRoot(environment.auth0),
+    BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

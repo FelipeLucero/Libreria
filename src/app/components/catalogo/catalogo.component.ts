@@ -1,6 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Libro } from 'src/app/services/libro';
 import { LibroService } from 'src/app/services/libro.service';
+
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
@@ -9,6 +11,16 @@ import { LibroService } from 'src/app/services/libro.service';
 export class CatalogoComponent implements OnInit {
   @Input() libros: Libro[] = [];
 
+  pageSize = 3;
+
+  desde:number = 0;
+  hasta:number = 3;
+
+  cambiarpagina(e:PageEvent){
+    console.log(e)
+    this.desde = e.pageIndex * e.pageSize;
+    this.hasta = this.desde + e.pageSize;
+  }
 
   constructor(private libroService: LibroService) { }
 
