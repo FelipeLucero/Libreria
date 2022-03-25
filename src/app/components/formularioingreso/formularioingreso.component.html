@@ -1,6 +1,6 @@
-<div class="container marginTop ">
-    <div class="row shadow m-5">
-        <div class="col-12 col-md-8 container">
+<div class="container marginTop shadow">
+    <div class="row">
+        <div class="col-12 col-md-8">
             <form [formGroup]="form">
                 <div>
                     <div class="card-header encabezado">
@@ -34,7 +34,7 @@
                                         [(ngModel)]="libro.imglibro"
                                         [ngClass]="{'is-invalid':submitted && f['imglibro'].errors}">
                                 </div>
-                                <div class="col-12 col-md-4 d-flex justify-content-center">
+                                <div class="col-12 col-md-4 d-flex justify-content-center align-content-center">
                                     <img class="imgcrud" src="{{libro.imglibro}}" alt="cargando IMG..................">
                                 </div>
                             </div>
@@ -52,20 +52,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="container mb-3">
+                    <button class="btn btn-lg btn-outline-primary me-4" (click)="onSubmit()"
+                        *ngIf="!libro.id else elseBlock" role="button">Crear</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-lg  btn-outline-primary me-4" (click)="updateLibro()"
+                            role="button">Editar</button>
+                    </ng-template>
+                    <button type="button" (click)="onReset()"
+                        class="btn btn-lg me-4 btn-outline-warning">Limpiar</button>
+                    <button type="button" class="btn btn-lg  btn-outline-success" routerLink="/crud">Volver</button>
+                </div>
             </form>
         </div>
-        <div class="col-12 col-md-4 ajustarimgadiv">
-            <img class="img-fluid" src="/assets/img/logo-claro.png" alt="imgIngresoLibros">
-        </div>
-        <div class="container mb-3">
-            <button class="btn btn-lg btn-outline-primary me-4" (click)="onSubmit()" *ngIf="!libro.id else elseBlock"
-                role="button">Crear</button>
-            <ng-template #elseBlock>
-                <button class="btn btn-lg  btn-outline-primary me-4" (click)="updateLibro()"
-                    role="button">Editar</button>
-            </ng-template>
-            <button type="button" (click)="onReset()" class="btn btn-lg me-4 btn-outline-warning">Limpiar</button>
-            <button type="button" class="btn btn-lg  btn-outline-success" routerLink="/crud">Volver</button>
+        <div class="col-12 col-md-4">
+            <div>
+                <img class="img-fluid" src="/assets/img/logo-claro.png" alt="imgIngresoLibros">
+            </div>
         </div>
     </div>
 </div>
