@@ -48,7 +48,7 @@ export class TablalibroComponent implements OnInit {
   public eliminar(libro: Libro) : void {
     swal({
       title: 'Estas seguro?',
-      text: `¿Seguro que deseas eliminar el libro  ${libro.nombre} ${libro.autor}?`,
+      text: `¿Seguro que deseas eliminar el libro  ${libro.nombre} del autor ${libro.autor}?`,
       type: 'warning',
       showCancelButton : true,
       confirmButtonText: 'Si, eliminar',

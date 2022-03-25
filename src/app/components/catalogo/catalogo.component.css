@@ -1,0 +1,10 @@
+.bgBotonCatalogo {
+  background-color: #230051;
+  color: #ffff;
+}
+
+.bgBotonCatalogo:hover {
+  background-color: #a8dadc;
+  color: #230051;
+  font-weight: bold;
+}
