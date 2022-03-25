@@ -11,10 +11,12 @@ export class HeaderComponent implements OnInit {
 
   isAuthenticated: boolean;
 
+  fechaLocal= new Date().toLocaleTimeString();
+  
 
   constructor(@Inject(DOCUMENT) private document: Document, private authService: AuthService) {
     this.isAuthenticated=false;
-   }
+  }
 
   ngOnInit(): void {
     this.authService.isAuthenticated$.subscribe((success: boolean) =>{
