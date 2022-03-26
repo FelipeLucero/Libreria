@@ -27,9 +27,9 @@
             <tbody>
                 <tr class="align-middle" *ngFor="let libro of libros">
                     <td>{{libro.id}}</td>
-                    <td>{{libro.nombre}}</td>
-                    <td>{{libro.autor}}</td>
-                    <td>{{libro.categoria}}</td>
+                    <td>{{libro.nombre | titlecase}}</td>
+                    <td>{{libro.autor | titlecase}}</td>
+                    <td>{{libro.categoria | titlecase}}</td>
                     <td>{{libro.detalle}}</td>
                     <td>{{libro.precio}}</td>
                     <div class="d-flex justify-content-center">

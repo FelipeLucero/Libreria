@@ -15,7 +15,7 @@
         <div class="col-12 col-md-3 shadow m-3 p-0 text-center " *ngFor="let libro of libros |slice:desde:hasta">
             <img class="img-fluid" src="{{libro.imglibro}}" alt="Logo">
             <h2 class="card-title mt-3"> Nombre: {{libro.nombre | uppercase}}</h2>
-            <h5 class="card-title">Autor: {{libro.autor | uppercase}}</h5>
+            <h5 class="card-title">Autor: {{libro.autor | titlecase}}</h5>
             <h5 class="card-title">Precio:$ {{libro.precio | uppercase}}</h5>
             <div class="d-flex justify-content-center pb-3">
                 <button class="btn bgBotonCatalogo" (click)="adicionarCarrito(libro)">AGREGAR</button>
