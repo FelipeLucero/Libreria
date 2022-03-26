@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { Libro } from 'src/app/services/libro';
 import { LibroService } from 'src/app/services/libro.service';
 
+
 @Component({
   selector: 'app-catalogo',
   templateUrl: './catalogo.component.html',
@@ -35,6 +36,10 @@ export class CatalogoComponent implements OnInit {
         console.log(this.libros);
       }
     );
+  }
+
+  adicionarCarrito(id:number){
+    window.alert("Libro ID: "+ id + " Seleccionado")
   }
 
 

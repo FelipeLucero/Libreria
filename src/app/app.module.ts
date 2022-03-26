@@ -21,7 +21,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -48,7 +48,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ReactiveFormsModule,
     AuthModule.forRoot(environment.auth0),
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
