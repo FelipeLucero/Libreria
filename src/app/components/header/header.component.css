@@ -23,17 +23,3 @@
   top: 25px;
   right: 100px;
 }
-
-.divCarrito {
-  position: fixed;
-  top: 0px;
-  right: 240px;
-  width: 80px;
-  height: 80px;
-  z-index: 1000;
-}
-
-.tamañoIcono {
-  font-size: 80px;
-  color: #230051;
-}

@@ -1,4 +1,16 @@
-<div class="container divMarginTop">
+<div class="divMarginTop colorMorado p-3">
+    <h2 class="text-center display-2">Agregue Sus Libros</h2>
+</div>
+<div class=" divCarrito container shadow-lg">
+    <div class="text-center border" *ngFor="let carrito of items">
+        <h5> Nombre: {{carrito.nombre | uppercase}}</h5>
+        <h5>Autor: {{carrito.autor | uppercase}}</h5>
+        <h5>Precio:$ {{carrito.precio | uppercase}}</h5>
+    </div>
+    <button class="btn bgBotonCatalogo mt-3">Pagar</button>
+    <i class="material-icons tamañoIcono">shopping_cart</i>
+</div>
+<div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-md-3 shadow m-3 p-0 text-center " *ngFor="let libro of libros |slice:desde:hasta">
             <img class="img-fluid" src="{{libro.imglibro}}" alt="Logo">
@@ -6,7 +18,7 @@
             <h5 class="card-title">Autor: {{libro.autor | uppercase}}</h5>
             <h5 class="card-title">Precio:$ {{libro.precio | uppercase}}</h5>
             <div class="d-flex justify-content-center pb-3">
-                <button class="btn bgBotonCatalogo" (click)="adicionarCarrito(libro.id)">AGREGAR</button>
+                <button class="btn bgBotonCatalogo" (click)="adicionarCarrito(libro)">AGREGAR</button>
             </div>
         </div>
         <mat-paginator [length]="libros.length" [pageSize]="pageSize" (page)="cambiarpagina($event)">
