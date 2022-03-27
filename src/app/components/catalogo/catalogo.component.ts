@@ -3,6 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { Libro } from 'src/app/services/libro';
 import { LibroService } from 'src/app/services/libro.service';
 import swal from 'sweetalert2';
+import * as printJS from 'print-js'
 
 
 @Component({
@@ -70,6 +71,11 @@ export class CatalogoComponent implements OnInit {
 
   listarCarrito(){
     return this.items;
+  }
+
+  //Aparte de imprimir, permite en seleccionar destino (guardar como pdf en computador)
+  imprimir(){
+    printJS({printable: this.items, type: 'json', properties: ['nombre', 'autor', 'precio']});
   }
 
 }
