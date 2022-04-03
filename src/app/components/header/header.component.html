@@ -1,20 +1,20 @@
 <nav class=" navbar navbar-expand-lg colornav">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img class="tamañoLogo" src="/assets/img/logo-oscuro.png" alt="logoOscuro">
+            <img class="tamañoLogo" src="/assets/img/logo-claro.png" alt="logoOscuro">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav fw-bold">
-                <a class="nav-link active" aria-current="page" routerLink="home"
+            <div class="navbar-nav  ">
+                <a class="nav-link text-white" aria-current="page" routerLink="home"
                     [routerLinkActive]="['activado']">Home</a>
-                <a class="nav-link" routerLink="catalogo" [routerLinkActive]="['activado']">Catálogo</a>
-                <a class="nav-link" routerLink="nosotros" [routerLinkActive]="['activado']">Nosotros</a>
-                <a class="nav-link" routerLink="crud" [routerLinkActive]="['activado']">Crud Libros</a>
-                <a class="nav-link" [routerLink]="['/login']" *ngIf="!isAuthenticated"
+                <a class="nav-link text-white" routerLink="catalogo" [routerLinkActive]="['activado']">Catálogo</a>
+                <a class="nav-link text-white" routerLink="nosotros" [routerLinkActive]="['activado']">Nosotros</a>
+                <a class="nav-link text-white" routerLink="crud" [routerLinkActive]="['activado']">Crud Libros</a>
+                <a class="nav-link text-white" [routerLink]="['/login']" *ngIf="!isAuthenticated"
                     [routerLinkActive]="['activado']">Iniciar Sesión</a>
                 <a class="nav-link me-2" [routerLink]="['/perfil']" *ngIf="isAuthenticated"
                     [routerLinkActive]="['activado']">Usuario</a>

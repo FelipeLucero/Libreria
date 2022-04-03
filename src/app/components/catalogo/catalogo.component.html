@@ -1,7 +1,8 @@
-<div class="divMarginTop colorMorado p-3">
-    <h2 class="text-center display-2">Agregue Sus Libros</h2>
+<div #asTitle class="divMarginTop colorMorado pt-3">
+    <h2 class="text-center display-4">Agregue Sus Libros</h2>
 </div>
-<div class=" divCarrito container shadow-lg">
+
+<div #idDivCarrito class=" divCarrito container shadow-lg">
     <div class="text-center border" *ngFor="let carrito of items">
         <h5> Nombre: {{carrito.nombre | uppercase}}</h5>
         <h5>Autor: {{carrito.autor | uppercase}}</h5>
@@ -9,7 +10,7 @@
     </div>
     <button class="btn bgBotonCatalogo mt-3" (click)="imprimir()">Pagar</button>
     <button class="btn bgBotonCatalogo mt-3 ms-3" (click)="limpiarCarrito()">Limpiar</button>
-    <i class="material-icons tamañoIcono">shopping_cart</i>
+  
 </div>
 <div class="container">
     <div class="row d-flex justify-content-center">
@@ -26,3 +27,4 @@
         </mat-paginator>
     </div>
 </div>
+<i (click) = "showCart()" class="material-icons tamañoIcono">shopping_cart</i>

@@ -1,9 +1,10 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,ElementRef,Renderer2,ViewChild } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Libro } from 'src/app/services/libro';
 import { LibroService } from 'src/app/services/libro.service';
 import swal from 'sweetalert2';
 import * as printJS from 'print-js'
+
 
 
 @Component({
@@ -12,6 +13,10 @@ import * as printJS from 'print-js'
   styleUrls: ['./catalogo.component.css']
 })
 export class CatalogoComponent implements OnInit {
+ 
+  @ViewChild('asTitle') title: ElementRef ;
+  @ViewChild('idDivCarrito') divCarrito: ElementRef;
+
   @Input() libros: Libro[] = [];
 
   pageSize = 3;
@@ -27,8 +32,8 @@ export class CatalogoComponent implements OnInit {
     this.hasta = this.desde + e.pageSize;
   }
 
-  constructor(private libroService: LibroService) { }
-
+  constructor(private  libroService: LibroService, private renderer2: Renderer2) { }
+ 
   ngOnInit(): void {
     this.cargarLibros();
   }
@@ -66,6 +71,15 @@ export class CatalogoComponent implements OnInit {
 
   limpiarCarrito(){
     this.items=[];
+    const asTitle = this.title.nativeElement;
+    console.log(asTitle);
+    console.log(asTitle.style.color);
+    if (asTitle.style.color ==='red') {
+      this.renderer2.setStyle(asTitle,'color','blue');  
+    } else {
+      this.renderer2.setStyle(asTitle,'color','red');
+    }
+     
     return this.items;
   }
 
@@ -76,6 +90,17 @@ export class CatalogoComponent implements OnInit {
   //Aparte de imprimir, permite en seleccionar destino (guardar como pdf en computador)
   imprimir(){
     printJS({printable: this.items, type: 'json', properties: ['nombre', 'autor', 'precio']});
+  }
+
+  showCart(){
+    const divCarrito = this.divCarrito.nativeElement;
+    if (divCarrito.style.display==='none') {
+      this.renderer2.setStyle(divCarrito,'display','block');
+      
+    } else {
+      this.renderer2.setStyle(divCarrito,'display','none');
+    }
+ 
   }
 
 }

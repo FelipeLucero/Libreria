@@ -4,8 +4,8 @@
 }
 
 .colornav {
-  background-color: #a8dadc;
-  color: #230051;
+  background-color: #0f433a;
+  color: #ffff;
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@
 }
 
 .activado {
-  color: #230051;
+  color: orange !important;
 }
 
 .hora {
@@ -22,4 +22,5 @@
   position: fixed;
   top: 25px;
   right: 100px;
+  color: #fff;
 }
